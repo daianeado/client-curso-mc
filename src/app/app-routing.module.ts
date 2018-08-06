@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { PedidoComponent } from './pedido/pedido.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { CategoriaComponent } from './categoria/categoria.component';
+
+const routes: Routes = [
+  { path: 'categoria', component: CategoriaComponent },
+  { path: 'cliente', component: ClienteComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'pedido', component: PedidoComponent },
+  { path: 'produto', component: ProdutoComponent },
+];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+  exports: [RouterModule],
+  imports: [ RouterModule.forRoot(routes) ]
 })
 export class AppRoutingModule { }
