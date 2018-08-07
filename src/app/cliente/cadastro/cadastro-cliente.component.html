@@ -1,0 +1,85 @@
+<mat-card>
+  <mat-card-title>Cadastro de Cliente</mat-card-title>
+  <mat-card-content>
+
+    <form class="example-form">
+      <mat-tab-group>
+        <mat-tab label="Dados Pessoais">
+          <div class="container">
+            <div class="row">
+              <mat-form-field class="example-full-width col-6">
+                <input matInput placeholder="Informe o nome do Cliente" [(ngModel)]="cliente.nome" name="nome">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-6">
+                <input matInput placeholder="Informe o e-mail do Cliente" [(ngModel)]="cliente.email" name="email">
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-radio-group class="ultimo-item-lista col-6" name="tipoPessoa" [(ngModel)]="cliente.tipo">
+                Tipo de Cliente:
+                <mat-radio-button value="1">Pessoa Física</mat-radio-button>
+                <mat-radio-button value="2">Pessoa Jurídica</mat-radio-button>
+              </mat-radio-group>
+              <mat-form-field class="col-6">
+                <input matInput placeholder="Informe o CPF/CNPJ do Cliente" [(ngModel)]="cliente.cpfOuCnpj" name="cpfOuCnpj">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Endereço">
+          <div class="container">
+            <div class="row">
+              <mat-form-field class="example-full-width col-6">
+                <input matInput placeholder="Informe o logradouro" name="logradouro" [(ngModel)]="cliente.logradouro">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-3">
+                <input matInput placeholder="Informe o número" name="numero" [(ngModel)]="cliente.numero">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-3">
+                <input matInput placeholder="Informe o complemento" name="complemento" [(ngModel)]="cliente.complemento">
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field class="example-full-width col-4">
+                <input matInput placeholder="Informe o bairro do Cliente" name="bairro" [(ngModel)]="cliente.bairro">
+              </mat-form-field>
+              <mat-form-field class="example-full-width col-4">
+                <input matInput placeholder="Informe o CEP do Cliente" name="cep" [(ngModel)]="cliente.cep">
+              </mat-form-field>
+              <mat-form-field class="ultimo-item-lista col-4">
+                <mat-select placeholder="Cidade do Cliente" [(value)]="cliente.cidadeId">
+                  <mat-option *ngFor="let cidade of cidades" [value]="cidade.id">
+                    {{cidade.nome}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Contato">
+          <div class="container">
+            <div class="row">
+              <mat-form-field class="example-full-width col-6">
+                <input matInput placeholder="Informe o telefone 1 de contato" name="telefone1" [(ngModel)]="cliente.telefone1">
+              </mat-form-field>
+              s </div>
+            <div class="row">
+              <mat-form-field class="example-full-width col-6">
+                <input matInput placeholder="Informe o telefone 2 de contato" name="telefone2" [(ngModel)]="cliente.telefone2">
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field class="example-full-width ultimo-item-lista col-6">
+                <input matInput placeholder="Informe o telefone 3 de contato" name="telefone3" [(ngModel)]="cliente.telefone3">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <div>
+        <button mat-stroked-button>Cancelar</button>
+        <button mat-raised-button color="primary" type="button" (click)="salvar()">Salvar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
