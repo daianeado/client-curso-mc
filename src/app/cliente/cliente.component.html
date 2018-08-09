@@ -1,5 +1,6 @@
 <mat-card>
-  <mat-card-title>Listagem de Cliente</mat-card-title>
+  <app-menu></app-menu>
+  <mat-card-title class="titulo-card">Listagem de Cliente</mat-card-title>
   <mat-card-content>
     <table mat-table [dataSource]="listCliente" class="mat-elevation-z8">
       <ng-container matColumnDef="nome">
@@ -16,11 +17,12 @@
 
     <div class="col-12">
       <div class="end-buttons">
+        <button mat-stroked-button routerLink="/home">Cancelar</button>
+        <button mat-raised-button color="primary" type="button" routerLink="/cliente/novo">Novo</button>
         <app-botoes-exportacao (exportarPDFFunction)="exportarPDF($event)" (exportarExcelFunction)="exportarExcel($event)" (imprimirFunction)="imprimir($event)"
           [tabela]="tabela">
         </app-botoes-exportacao>
       </div>
     </div>
-
   </mat-card-content>
 </mat-card>

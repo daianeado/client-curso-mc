@@ -1,5 +1,24 @@
-table {
-    width: 50%;
+.example-form {
+    /* min-width: 150px; */
+    /* max-width: 500px; */
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.mat-radio-button {
+    padding-right: 2%;
+}
+.mat-list-item{
+    padding-top: 4%;
+}
+.ultimo-item-lista{
+    padding-bottom: 4%;
+}
+.mat-stroked-button{
+    margin-right: 1%;
 }
 .end-buttons, .center-buttons, .space-between, .flex-container, .space-around {
     display: -webkit-box;
@@ -12,13 +31,4 @@ table {
 }
 .end-buttons {
     justify-content: flex-end;
-}
-.mat-stroked-button, .mat-raised-button{
-    margin-right: 1%;
-}
-
-.titulo-card {
-    padding-top: 3%;
-    font-size: 21px;
-    padding-bottom: 2%;
 }
