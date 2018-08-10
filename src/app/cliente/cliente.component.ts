@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from '../domains/cliente.domain';
-import { ClienteDTO } from '../domains/cliente.DTO';
-import { ClienteService } from './cliente.service';
 import { ToastrService } from 'ngx-toastr';
+import { ClienteDTO } from '../domains/cliente.DTO';
 import { ExportacaoUtil } from '../util/utilitarios/exportacao';
+import { ClienteService } from './cliente.service';
 
 @Component({
   selector: 'app-cliente',

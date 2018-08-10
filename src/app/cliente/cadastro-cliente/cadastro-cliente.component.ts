@@ -3,6 +3,7 @@ import { Cidade } from '../../domains/cidade.domain';
 import { Cliente } from '../../domains/cliente.domain';
 import { ClienteService } from '../cliente.service';
 import { ToastrService } from 'ngx-toastr';
+import { CidadeService } from '../../util/services/cidade.service';
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -15,14 +16,13 @@ export class CadastroClienteComponent implements OnInit {
   cliente: Cliente = new Cliente();
 
   constructor(private clienteService: ClienteService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private cidadeService: CidadeService) { }
 
   ngOnInit() {
-    this.cidades = [
-      { id: 1, nome: "Uberlândia", estado: null },
-      { id: 2, nome: "São Paulo", estado: null },
-      { id: 3, nome: "Campinas", estado: null },
-    ];
+    this.cidadeService.getAll().subscribe(cidades => {
+      this.cidades = cidades;
+    });
   }
 
   salvar() {
