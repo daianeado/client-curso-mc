@@ -19,7 +19,8 @@ import { MenuComponent } from './menu/menu.component';
 import { CadastroCategoriaComponent } from './categoria/cadastro-categoria/cadastro-categoria.component';
 import { CadastroPedidoComponent } from './pedido/cadastro-pedido/cadastro-pedido.component';
 import { CadastroClienteComponent } from './cliente/cadastro-cliente/cadastro-cliente.component';
-import { EstruturaPaginaComponent } from './estrutura-pagina/estrutura-pagina.component';
+import { CategoriaService } from './categoria/categoria.service';
+import { ProdutoService } from './produto/produto.service';
 
 
 @NgModule({
@@ -34,8 +35,7 @@ import { EstruturaPaginaComponent } from './estrutura-pagina/estrutura-pagina.co
     BotoesExportacaoComponent,
     MenuComponent,
     CadastroCategoriaComponent,
-    CadastroPedidoComponent,
-    EstruturaPaginaComponent
+    CadastroPedidoComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +60,7 @@ import { EstruturaPaginaComponent } from './estrutura-pagina/estrutura-pagina.co
     HttpModule,
     MatMenuModule
   ],
-  providers: [ClienteService],
+  providers: [ClienteService, CategoriaService, ProdutoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
