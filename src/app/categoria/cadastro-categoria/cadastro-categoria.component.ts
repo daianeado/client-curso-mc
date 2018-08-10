@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaDTO } from '../../domains/categoria.DTO';
+import { ToastrService } from 'ngx-toastr';
+import { CategoriaService } from '../categoria.service';
 
 @Component({
   selector: 'app-cadastro-categoria',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroCategoriaComponent implements OnInit {
 
-  constructor() { }
+  categoria: CategoriaDTO = new CategoriaDTO();
+  constructor(private categoriaService: CategoriaService,
+    private toastrService: ToastrService) { }
 
   ngOnInit() {
+  }
+
+  salvar() {
+    //fazer validações
+    this.categoriaService.save(this.categoria).subscribe(cliente => {
+      this.toastrService.success("Categoria salva com sucesso!");
+    });
   }
 
 }

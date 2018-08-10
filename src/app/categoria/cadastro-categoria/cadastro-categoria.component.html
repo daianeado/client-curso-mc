@@ -1,3 +1,19 @@
-<p>
-  cadastro-categoria works!
-</p>
+<mat-card>
+  <mat-card-title>Cadastro de Cliente</mat-card-title>
+  <mat-card-content>
+
+    <form class="example-form">
+      <div class="container">
+        <div class="row">
+          <mat-form-field class="example-full-width col-6">
+            <input matInput placeholder="Informe o nome da Categoria" [(ngModel)]="categoria.nome" name="nome">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="end-buttons">
+        <button mat-stroked-button routerLink="/categoria">Cancelar</button>
+        <button mat-raised-button color="primary" type="button" (click)="salvar()">Salvar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
