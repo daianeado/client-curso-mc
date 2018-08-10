@@ -21,6 +21,7 @@ import { CadastroPedidoComponent } from './pedido/cadastro-pedido/cadastro-pedid
 import { CadastroClienteComponent } from './cliente/cadastro-cliente/cadastro-cliente.component';
 import { CategoriaService } from './categoria/categoria.service';
 import { ProdutoService } from './produto/produto.service';
+import { PedidoService } from './pedido/pedido.service';
 
 
 @NgModule({
@@ -60,7 +61,7 @@ import { ProdutoService } from './produto/produto.service';
     HttpModule,
     MatMenuModule
   ],
-  providers: [ClienteService, CategoriaService, ProdutoService],
+  providers: [ClienteService, CategoriaService, ProdutoService, PedidoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

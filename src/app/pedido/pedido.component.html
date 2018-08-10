@@ -1,5 +1,35 @@
 <mat-card>
   <app-menu></app-menu>
   <mat-card-title class="titulo-card">Listagem de Pedido</mat-card-title>
-  <mat-card-content></mat-card-content>
+  <mat-card-content>
+    <table mat-table [dataSource]="listPedido" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Nº </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="instante">
+        <th mat-header-cell *matHeaderCellDef> Data do Pedido </th>
+        <td mat-cell *matCellDef="let element"> {{element.instante}} </td>
+      </ng-container>
+      <ng-container matColumnDef="cliente">
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.cliente.nome}} </td>
+      </ng-container>
+      <ng-container matColumnDef="endereco">
+        <th mat-header-cell *matHeaderCellDef> Endereço </th>
+        <td mat-cell *matCellDef="let element"> {{element.enderecoDeEntrega.logradouro}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="col-12">
+        <div class="end-buttons">
+          <button mat-stroked-button routerLink="/home">Voltar</button>
+          <button mat-raised-button color="primary" type="button" routerLink="/pedido/novo">Novo</button>
+          <app-botoes-exportacao (exportarPDFFunction)="exportarPDF($event)" (exportarExcelFunction)="exportarExcel($event)" (imprimirFunction)="imprimir($event)"
+            [tabela]="tabela">
+          </app-botoes-exportacao>
+        </div>
+      </div>
+  </mat-card-content>
 </mat-card>

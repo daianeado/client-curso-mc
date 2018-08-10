@@ -11,16 +11,12 @@ import { ExportacaoUtil } from '../util/utilitarios/exportacao';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-
-  cliente: Cliente;
-  clienteDTO: ClienteDTO;
-
   listCliente: ClienteDTO[];
 
-  displayedColumns: string[] = ['nome','email'];
+  displayedColumns: string[] = ['nome', 'email'];
 
   constructor(private clienteService: ClienteService,
-              private toastrService: ToastrService) { }
+    private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.listCliente = [];

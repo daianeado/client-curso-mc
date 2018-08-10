@@ -1,23 +1,22 @@
-import { Injectable } from '@angular/core';
-import { Cliente } from '../domains/cliente.domain';
 import { HttpClient } from '@angular/common/http';
-import { ClienteDTO } from '../domains/cliente.DTO';
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Pedido } from '../domains/pedido.domain';
+import { PedidoDTO } from '../domains/pedido.DTO';
 import { ExportacaoUtilService } from "../util/services/exportacao-util.service";
-import { CategoriaDTO } from '../domains/categoria.DTO';
 
 @Injectable()
-export class CategoriaService {
+export class PedidoService {
     constructor(private http: HttpClient,
         private httpNew: Http) { }
-    baseUrl: string = 'http://localhost:8080/categorias';
+    baseUrl: string = 'http://localhost:8080/pedidos';
 
-    save(categoria: CategoriaDTO) {
-        return this.http.post(this.baseUrl, categoria);
+    save(pedido: Pedido) {
+        return this.http.post(this.baseUrl, pedido);
     }
 
     getAll() {
-        return this.http.get<CategoriaDTO[]>(this.baseUrl);
+        return this.http.get<PedidoDTO[]>(this.baseUrl);
     }
 
     gerarPDF(): any {
@@ -26,5 +25,4 @@ export class CategoriaService {
     gerarExcel() {
         return ExportacaoUtilService.gerarExcel(this.baseUrl, "/excel", null, this.httpNew);
     }
-
 }

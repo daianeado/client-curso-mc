@@ -11,7 +11,6 @@ import { ExportacaoUtil } from '../util/utilitarios/exportacao';
 })
 export class CategoriaComponent implements OnInit {
 
-  categoria: CategoriaDTO;
   listCategoria: CategoriaDTO[];
 
   displayedColumns: string[] = ['id','nome'];
